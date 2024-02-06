@@ -1,12 +1,16 @@
 import React from 'react'
 import Promotion from './Promotion'
-import Popular from '../category/popular'
+import Row from '../category/Class'
+// import Category from '../category/Category'
+import request from '../services/Api'
 
 function Home() {
   return (
     <div>
         <Promotion/>
-        <Popular/>
+        <Row title ="Popular" fetchurl={request.popular}/>
+        <Row title ="Trending" fetchurl={request.trending}/>
+        <Row title = "New release" fetchurl={request.newrelease}/>
     </div>
   )
 }

@@ -5,6 +5,8 @@ const base_url = "https://api.themoviedb.org/3";
 const request = {
   popular: `${base_url}/movie/popular?language=en-US&page=1&page=1&api_key=${api_key}`,
   trending: `${base_url}/trending/movie/day?language=en-US&page=1&api_key=${api_key}`,
+  // 'https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1'
+  newrelease : `${base_url}/tv/airing_today?language=en-US&page=1&api_key=${api_key}`,
 };
 
 export default request;
