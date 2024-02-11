@@ -1,0 +1,8 @@
+.img{
+    
+    height: auto;
+    max-height: 100vh;
+    object-fit:fill;
+    width: 100vw;
+    /* image-rendering: -webkit-optimize-contrast; */
+}

@@ -1,13 +1,48 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import request from '../services/Api'
+import './banner.css'
+
 
 const Promotion = () => {
+
+  const [banner, setbanner] = useState([])
+
+  useEffect( () => {
+    async function fetchmovie() {
+
+      const result = await fetch(request.trending);
+      const  movie = await result.json();
+  
+      setbanner(movie.results)
+      
+    }
+    fetchmovie()
+  }, [])
+
+ 
+  const randomIndex = Math.floor(Math.random() * banner.length);
+
+  const randomMovie = banner[randomIndex];
+  
   return (
-    <div>
-        <img className='w-screen relative' src='https://img.freepik.com/free-psd/action-video-game-3d-text-style-effect_1389-1572.jpg?w=740&t=st=1705444488~exp=1705445088~hmac=62c89dbb3ac6ed960f2c5b554c847e25c4b651d3e72070bc4c116a557db67440' alt='movie photo'/>
-        <div>
-            
-        </div>
-        
+    <div >
+
+
+      
+{randomMovie && (
+  <div className = 'relative'>
+      <img
+      className='img'
+      src={`https://image.tmdb.org/t/p/w500/${randomMovie.poster_path}`}
+      alt='movie banner'
+    />
+    <h1 className = 'relative text-2xl bottom-36'>{randomMovie.title}</h1>
+  </div>
+  )}
+
+       
+
+     
     </div>
     
   )

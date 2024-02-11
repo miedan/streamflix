@@ -14,6 +14,7 @@ const Row = ({ title, fetchurl }) => {
         const response = await fetch(fetchurl);
         const data = await response.json();
         setMovies(data.results);
+        console.log(data)
         setIsLoading(false); // Set loading to false after data is fetched
       } catch (error) {
         console.error('Error fetching movies:', error);
@@ -65,6 +66,7 @@ const Row = ({ title, fetchurl }) => {
           {movies.map((movie) => (
             <div className='pr-2 pb-8 pt-3' key={movie.id}>
               <img
+                
                 src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                 alt='movie photo'
               />
