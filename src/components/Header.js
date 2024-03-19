@@ -28,12 +28,12 @@ const Header = () => {
   }
   
   return (
-    <div>
+    <div className='my-6'>
        
       <nav className='flex items-center justify-between '>
 
           <div className='flex items-center '>
-            <img src={netflixLogo} alt='netflixlogo' className='h-20 w-24 '></img>
+            {/* <img src={netflixLogo} alt='netflixlogo' className='h-20 w-24 '></img> */}
             <div onMouseOver={handleonmouseover} onMouseOut={handleonmouseout} className='md:hidden relative  flex gap-1 items-center text-sm '>
               <p>browse</p>
               <IoMdArrowDropdown/>
@@ -42,10 +42,9 @@ const Header = () => {
                 <ul className='w-32 absolute left-0 top-6 border  border-white text-sm flex flex-col gap-2 py-2'>
                   
                   <li>Home</li>
-                  <li>Tv Shows</li>
                   <li>Movies</li>
-                  <li>Latest</li>
-                  <li>My List</li>
+                  <li>Tv Shows</li>
+                  <li>Watch Later</li>
                 </ul>
               
             )}
@@ -55,33 +54,38 @@ const Header = () => {
               <li>Home</li>
               <li>Tv Shows</li>
               <li>Movies</li>
-              <li>Latest</li>
-              <li>My List</li>
+              <li>Watch Later</li>
             </ul>
           </div>
 
           <div className='flex gap-3 items-center pr-4'>
             
             <div className='hidden md:block'>
+             
 
-              {search ? 
+               <input type='search' placeholder='Search movies' className='border border-blue-500 text-black  bg-white pl-2 text-md'/>
+
+              {/* {search ? 
               (
               <div className='relative inline-block'>
                 <IoSearchOutline  className='absolute left-1 top-1/2 -translate-y-1/2 '/>
-                <input type='search' placeholder='Genre, Titles, People' className='border border-white bg-black pl-6 text-sm'/>
+                <input type='search' placeholder='Search movies' className='border border-white bg-white pl-6 text-sm'/>
               </div>
               )
               : 
-              (<IoSearchOutline onClick={handleclick}/>)}
+              (<IoSearchOutline onClick={handleclick}/>)} */}
             </div>
             
 
            
             
+            
+            <button className='bg-blue-500 px-1'>Sign up</button>
+            <button className=' border border-blue-500 px-1'>Log in</button>
             <MdOutlineNotifications/> 
-            <img src={profilepic} alt='profile avatar' className='w-6 h-6 w- ' ></img>
+            {/* <img src={profilepic} alt='profile avatar' className='w-6 h-6 w- ' ></img> */}
 
-            <div onMouseOver={handleonmouseover} onMouseOut={handleonmouseout} className='hidden md:relative  md:inline-block '>
+            {/* <div onMouseOver={handleonmouseover} onMouseOut={handleonmouseout} className='hidden md:relative  md:inline-block '>
               <IoMdArrowDropdown/>
               { dropdownon && (
               
@@ -94,7 +98,7 @@ const Header = () => {
                 </ul>
               
             )}
-            </div>
+            </div> */}
          
             
         

@@ -7,6 +7,9 @@ const request = {
   trending: `${base_url}/trending/movie/day?language=en-US&page=1&api_key=${api_key}`,
   // 'https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1'
   newrelease : `${base_url}/tv/airing_today?language=en-US&page=1&api_key=${api_key}`,
+  toprated : `${base_url}/tv/top_rated?language=en-US&page=1&api_key=${api_key}`,
+
+// https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1&api_key=8d8ff0b6170bff5622de6091db2a9140
 };
 
 export default request;

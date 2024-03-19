@@ -2,7 +2,7 @@
     
     height: auto;
     max-height: 100vh;
-    object-fit:fill;
+    object-fit:cover;
     width: 100vw;
     /* image-rendering: -webkit-optimize-contrast; */
 }
