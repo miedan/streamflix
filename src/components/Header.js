@@ -6,11 +6,15 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import netflixLogo from '../assets/net-logo.png';
 import profilepic from '../assets/profilepic.jpg';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
 
 const Header = () => {
+
+  const navigate = useNavigate()
 
   const [search, setsearch] = useState(false)
   const [dropdownon, setdropdownon] = useState(false)
@@ -43,7 +47,8 @@ const Header = () => {
                   
                   <li>Home</li>
                   <li>Movies</li>
-                  <li>Tv Shows</li>
+                  
+                  
                   <li>Watch Later</li>
                 </ul>
               
@@ -52,8 +57,12 @@ const Header = () => {
 
             <ul className='hidden md:flex md:gap-3 '>
               <li>Home</li>
-              <li>Tv Shows</li>
               <li>Movies</li>
+              <Link to='/tvseries'>
+                    <li>
+                      Tv Series
+                    </li>
+                  </Link>
               <li>Watch Later</li>
             </ul>
           </div>
@@ -80,7 +89,7 @@ const Header = () => {
            
             
             
-            <button className='bg-blue-500 px-1'>Sign up</button>
+            <button onClick={() => navigate('/movie')} className='bg-blue-500 px-1'>Sign up</button>
             <button className=' border border-blue-500 px-1'>Log in</button>
             <MdOutlineNotifications/> 
             {/* <img src={profilepic} alt='profile avatar' className='w-6 h-6 w- ' ></img> */}

@@ -3,11 +3,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './row.css';
+import { useNavigate } from 'react-router-dom';
 
 
 const Row = ({ title, fetchurl }) => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate()
   // const [hoveredMovieId, setHoveredMovieId] = useState(null);
 
   useEffect(() => {
@@ -15,6 +17,7 @@ const Row = ({ title, fetchurl }) => {
       try {
         const response = await fetch(fetchurl);
         const data = await response.json();
+        console.log(data, "data")
         setMovies(data.results);
         setIsLoading(false);
       } catch (error) {
@@ -54,17 +57,20 @@ const Row = ({ title, fetchurl }) => {
 
   return (
     <div className='row'>
+      
+     
       <h1 className='flex justify-start text-3xl pb-2'>{title}</h1>
       {isLoading ? (
         <div>Loading...</div>
       ) : (
-        <Slider {...settings}>
+        <Slider  {...settings}>
+          
           {movies.map((movie) => (
             <div
+            onClick={() => navigate(`/movie/${movie.id}`)}
               className='pb-8  pr-3 relative flex flex-col' // Add relative positioning to the container
               key={movie.id}
-              // onMouseOver={() => handleMouseOver(movie.id)} // Pass movie ID to handleMouseOver
-              // onMouseOut={handleMouseOut}
+              
             >
               <img
                 className='object-contain'
@@ -83,6 +89,7 @@ const Row = ({ title, fetchurl }) => {
           ))}
         </Slider>
       )}
+     
     </div>
   );
 };
