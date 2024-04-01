@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './row.css';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -10,14 +9,14 @@ const Row = ({ title, fetchurl }) => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate()
-  // const [hoveredMovieId, setHoveredMovieId] = useState(null);
+ 
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
         const response = await fetch(fetchurl);
         const data = await response.json();
-        console.log(data, "data")
+        console.log(data, "movie data")
         setMovies(data.results);
         setIsLoading(false);
       } catch (error) {

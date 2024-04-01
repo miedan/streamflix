@@ -10,8 +10,6 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 
-
-
 const Header = () => {
 
   const navigate = useNavigate()
@@ -56,13 +54,19 @@ const Header = () => {
             </div>
 
             <ul className='hidden md:flex md:gap-3 '>
-              <li>Home</li>
+              <Link to='/'>
+                    <li>
+                      Home
+                    </li>
+              </Link>
+              
               <li>Movies</li>
+
               <Link to='/tvseries'>
                     <li>
                       Tv Series
                     </li>
-                  </Link>
+              </Link>
               <li>Watch Later</li>
             </ul>
           </div>
