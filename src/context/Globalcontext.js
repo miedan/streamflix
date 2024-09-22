@@ -3,10 +3,7 @@ import Appreducer from "./Appreducer";
 
 const initialstate = {
     watchlater : localStorage.getItem('watchlater') ? JSON.parse(localStorage.getItem('watchlater')):[],
-    
-    // watchlater: localStorage.getItem('watchlater') ? JSON.parse(localStorage.getItem('watchlater')) : [],
-    
-    
+   
 }
 
 export const Globalcontext = createContext(initialstate);
